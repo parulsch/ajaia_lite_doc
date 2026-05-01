@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Architecture Note
 
 ## Project Overview
@@ -197,4 +198,205 @@ With another 2–4 hours, I would add:
 4. Better rich-text editor toolbar
 5. More automated tests
 6. Production database support, such as Postgres
+=======
+# Architecture Note
+
+## Project Overview
+
+DocLite is a lightweight collaborative document editor inspired by Google Docs. The goal was not to recreate Google Docs completely, but to build a focused working product slice within the timebox.
+
+The app supports the main document workflow:
+
+1. Create a document
+2. Rename a document
+3. Edit formatted content
+4. Save and reopen documents
+5. Upload a `.txt` or `.md` file into the product workflow
+6. Share a document with another user
+7. Show owned, shared with me, and shared by me documents
+
+## Technology Stack
+
+### Frontend
+
+The frontend is built using:
+
+- React
+- Vite
+- CSS
+- Browser `contentEditable` editor
+
+The frontend provides the user interface for selecting a user, creating documents, editing content, uploading files, saving documents, and sharing documents.
+
+### Backend
+
+The backend is built using:
+
+- Python
+- FastAPI
+
+The backend provides REST API endpoints for:
+
+- Getting seeded users
+- Creating documents
+- Updating documents
+- Uploading files
+- Sharing documents
+- Fetching owned and shared documents
+
+### Database
+
+The app uses:
+
+- SQLite
+
+SQLite was selected because it is lightweight, simple to set up, and appropriate for a small assessment MVP. It also allows documents and sharing data to remain available after refresh.
+
+## Data Model
+
+The app uses three main tables.
+
+### users
+
+Stores seeded users.
+
+Example users:
+
+- Alice Morgan
+- Ben Carter
+- Priya Shah
+
+These users simulate login without building a full authentication system.
+
+### documents
+
+Stores document data, including:
+
+- Document ID
+- Title
+- Rich text content as HTML
+- Owner ID
+- Created timestamp
+- Updated timestamp
+
+### document_shares
+
+Stores sharing relationships, including:
+
+- Document ID
+- User ID of the person the document is shared with
+- Created timestamp
+
+## Sharing Model
+
+The sharing model is intentionally simple.
+
+Each document has one owner. The owner can share the document with another seeded user.
+
+The interface shows three document sections:
+
+1. **My Documents**  
+   Documents created by the current user.
+
+2. **Shared With Me**  
+   Documents another user shared with the current user.
+
+3. **Shared By Me**  
+   Documents the current user has shared with others.
+
+This makes ownership and sharing behavior easy for reviewers to test.
+
+## Persistence
+
+Documents and sharing data are stored in SQLite.
+
+This means:
+
+- Documents remain available after refresh
+- Saved content can be reopened
+- Shared access can be demonstrated
+- Uploaded files become stored documents
+
+Document content is stored as HTML so basic formatting is preserved after saving.
+
+## File Upload Design
+
+The app supports uploading:
+
+- `.txt`
+- `.md`
+
+When a user uploads a file, the backend reads the file content and creates a new editable document.
+
+I intentionally limited upload support to `.txt` and `.md` to keep the workflow reliable within the timebox. DOCX and PDF parsing were deprioritized.
+
+## API Design
+
+The backend exposes simple REST endpoints.
+
+Key endpoints include:
+
+- `GET /users`
+- `GET /documents?user_id=1`
+- `GET /documents/{document_id}?user_id=1`
+- `POST /documents`
+- `PUT /documents/{document_id}`
+- `POST /documents/{document_id}/share`
+- `POST /documents/upload`
+
+This keeps the backend easy to understand and test.
+
+## Prioritization
+
+I prioritized the core product loop:
+
+1. Create
+2. Edit
+3. Save
+4. Reopen
+5. Upload
+6. Share
+
+These were the most important requirements for demonstrating a usable document editor MVP.
+
+## Intentional Scope Cuts
+
+The following features were intentionally deprioritized:
+
+- Real authentication
+- Password-based login
+- Real-time multi-user editing
+- Collaboration cursors
+- Comments
+- Suggestion mode
+- Version history
+- DOCX upload
+- PDF export
+- Advanced role-based permissions
+
+These are valuable features, but they would add significant complexity. I chose to focus on a smaller set of features that work end to end.
+
+## Engineering Quality
+
+The project includes:
+
+- Clear frontend and backend separation
+- SQLite persistence
+- Basic validation and error handling
+- Seeded users for easy review
+- Owned and shared document views
+- File upload handling
+- One automated backend test using Pytest
+
+## What I Would Improve Next
+
+With another 2–4 hours, I would add:
+
+1. Viewer/editor permission levels
+2. Document version history
+3. Comments
+4. Better rich-text editor toolbar
+5. More automated tests
+6. Production database support, such as Postgres
+>>>>>>> 37e21760ae63c1531bb307cd25709b73c6fe789e
 7. Real authentication
