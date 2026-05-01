@@ -17,11 +17,11 @@ The app uses seeded users instead of full authentication so reviewers can quickl
 
 ## Live Product URL
 
-`<add your deployed frontend URL here>`
+https://ajaia-lite-doc.vercel.app/
 
 ## Backend API URL
 
-`<add your deployed backend URL here>`
+https://ajaia-lite-doc.onrender.com
 
 ## Walkthrough Video
 
