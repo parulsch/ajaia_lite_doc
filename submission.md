@@ -298,3 +298,6 @@ Share
 
 >>>>>>> 37e21760ae63c1531bb307cd25709b73c6fe789e
 This allowed the app to demonstrate a complete working flow while keeping the implementation understandable and reviewable.
+
+Live Product URL: your Vercel frontend URL
+Backend API URL: your Render backend URL
