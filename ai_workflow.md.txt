@@ -1,0 +1,137 @@
+# AI Workflow Note
+
+## AI Tools Used
+
+I used ChatGPT as an AI planning, coding, debugging, and documentation assistant during this assessment.
+
+## Where AI Helped
+
+AI helped me move faster in the following areas:
+
+1. Understanding the open-ended assessment requirement
+2. Breaking the assignment into a focused MVP scope
+3. Deciding which features to prioritize within the timebox
+4. Designing the backend structure using FastAPI and SQLite
+5. Designing the frontend workflow for document creation, editing, upload, and sharing
+6. Debugging issues during development
+7. Drafting documentation such as README, architecture note, and submission summary
+
+## How AI Materially Sped Up the Work
+
+The biggest time savings came from using AI to quickly convert the assignment into a practical build plan.
+
+Instead of trying to recreate all Google Docs features, AI helped identify the most important workflow:
+
+- Create document
+- Edit document
+- Save and reopen document
+- Upload `.txt` or `.md` file
+- Share document with another user
+- Show owned and shared documents clearly
+
+AI also helped generate starter code for the backend APIs, frontend layout, test case, and documentation drafts. This allowed me to spend more time testing, adjusting, and making product decisions.
+
+## Example Prompts Used
+
+### Prompt 1
+
+“Help me understand this AJAIA assessment in simple terms and break it into step-by-step tasks.”
+
+### Prompt 2
+
+“Create a focused MVP plan for a lightweight Google Docs-inspired collaborative document editor that can be built within 4–6 hours.”
+
+### Prompt 3
+
+“Help me create a FastAPI backend with SQLite for users, documents, file upload, and document sharing.”
+
+### Prompt 4
+
+“Help me build a React frontend where users can create, edit, save, upload, and share documents.”
+
+### Prompt 5
+
+“Help me write README, architecture, AI workflow, and submission documentation for this assessment.”
+
+## AI Output I Changed or Rejected
+
+I did not accept every AI suggestion directly.
+
+I rejected or intentionally deprioritized suggestions that were too large for the timebox, including:
+
+- Real authentication
+- Password-based login
+- Real-time collaboration
+- Multi-user cursor tracking
+- Comments
+- Suggestion mode
+- Version history
+- DOCX parsing
+- PDF export
+- Advanced role-based permissions
+
+These features are useful, but they would have made the project too large for the assignment timeline.
+
+## What I Changed Manually
+
+I adjusted the AI-generated direction to keep the product simple and reviewable.
+
+Manual decisions included:
+
+- Using seeded users instead of full authentication
+- Supporting only `.txt` and `.md` uploads
+- Using SQLite for lightweight persistence
+- Showing three clear document sections:
+  - My Documents
+  - Shared With Me
+  - Shared By Me
+- Keeping sharing simple instead of building complex access control
+- Adding one meaningful automated backend test
+
+## How I Verified Correctness
+
+I verified the application through manual testing and automated testing.
+
+Manual testing included:
+
+1. Creating a new document
+2. Renaming the document
+3. Typing and formatting content
+4. Saving the document
+5. Refreshing the browser and reopening the saved document
+6. Uploading a `.txt` or `.md` file
+7. Confirming the uploaded file became an editable document
+8. Sharing a document with another seeded user
+9. Switching users to confirm the document appeared under Shared With Me
+10. Confirming the owner could see the document under Shared By Me
+
+## Automated Test
+
+I added one backend automated test using Pytest.
+
+The test verifies that:
+
+1. A document can be created
+2. The document can be shared with another user
+3. The shared document appears in the receiving user's shared document list
+
+The test passed successfully.
+
+## UX and Product Quality Verification
+
+I checked the product from a reviewer’s perspective.
+
+I verified that:
+
+- The main workflow is easy to understand
+- The seeded user dropdown makes sharing easy to test
+- The document sections clearly separate owned and shared documents
+- Upload limitations are clear
+- Error messages are simple and understandable
+- The app demonstrates the required product workflow without unnecessary complexity
+
+## Reflection
+
+AI helped me work faster, but I used it as an assistant rather than blindly accepting all output. I made final decisions based on the assessment requirements, timebox, product usability, and implementation reliability.
+
+The final scope focuses on a working end-to-end MVP instead of a broad but shallow Google Docs clone.
