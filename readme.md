@@ -121,5 +121,5 @@ pip install -r requirements.txt
 >>>>>>> 37e21760ae63c1531bb307cd25709b73c6fe789e
 python -m uvicorn main:app --reload
 
-Live Product URL: your Vercel frontend URL
-Backend API URL: your Render backend URL
+Live Product URL: https://ajaia-lite-doc.vercel.app/
+Backend API URL:https://ajaia-lite-doc.onrender.com
